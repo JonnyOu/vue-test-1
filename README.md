@@ -1,24 +1,14 @@
 # hello-world
 
-## Project setup
+### 项目描述
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+此项目为学习vue时做的一个小项目，只有一个页面。项目用了element-ui框架，实现了几个网页开发常用的功能
+1.顶部导航栏
+2.轮播图
+3.分页系统
 ```
 
-### Compiles and minifies for production
+### 最终效果
 ```
-npm run build
+![image](http://github.com//readme_add_pic/raw/master/images/nongshalie.jpg)
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
