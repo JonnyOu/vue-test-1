@@ -1,9 +1,9 @@
 <template>
   <div class="pagination">
     <el-table
-      :data="list.slice((currentPage-1)*pageSize, currentPage*pageSize)"
+       :data="list.slice((currentPage-1)*pageSize, currentPage*pageSize)" 
       style="width: 100%"
-    >
+    >  <!-- list.slice截取list数组中当前页面的所有数据 -->
       <el-table-column prop="date" label="日期" width="180"></el-table-column>
       <el-table-column prop="name" label="姓名" width="180"></el-table-column>
       <el-table-column prop="address" label="地址"></el-table-column>
@@ -13,7 +13,7 @@
       background
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-      :current-page="currentPage4"
+      :current-page="currentPage"
       :page-sizes="pageSizes"
       :page-size="pageSize"
       layout="total, sizes, prev, pager, next, jumper"
@@ -26,10 +26,10 @@
 export default {
   data() {
     return {
-      currentPage: 1,
-      pageSize: 8,
-      pageSizes: [4, 8, 12, 16],
-      totalCount: 48,
+      currentPage: 1, // 当前显示页
+      pageSize: 8,  // 每页显示数据条数
+      pageSizes: [4, 8, 12, 16], // 可选择每页显示数据条数
+      totalCount: 48, // 数据总数
       list: [
         {
           date: "2016-05-02",
@@ -271,15 +271,16 @@ export default {
           name: "16",
           address: "上海市普陀区金沙江路 1516 弄"
         }
-      ]
+      ] // 存放数据的数组
     };
   },
   methods: {
-    handleSizeChange(val) {
-      this.pageSize = val;
+    handleSizeChange(val) { // 每次切换页面大小时，此方法响应，改变页面大小
+      this.pageSize = val; 
+      this.currentPage = 1;
       console.log(`每页 ${val} 条`);
     },
-    handleCurrentChange(val) {
+    handleCurrentChange(val) { // 每次切面当前页时，此方法响应，改变当前页
       this.currentPage = val;
       console.log(`当前页: ${val}`);
     }
@@ -287,10 +288,3 @@ export default {
 };
 </script>
 
-<style>
-.them {
-  margin: 20px 0 0 0;
-  left: 50%;
-  text-align: center;
-}
-</style>
