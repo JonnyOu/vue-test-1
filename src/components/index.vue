@@ -27,7 +27,7 @@ export default {
 <style scoped>
   div {
     width: 1000px;
-    height: 1300px;
+    height: 1500px;
     margin: 10px auto;
   }
 
