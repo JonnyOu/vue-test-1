@@ -1,9 +1,10 @@
 <template>
   <div class="pagination">
     <el-table
-       :data="list.slice((currentPage-1)*pageSize, currentPage*pageSize)" 
+      :data="list.slice((currentPage-1)*pageSize, currentPage*pageSize)"
       style="width: 100%"
-    >  <!-- list.slice截取list数组中当前页面的所有数据 -->
+    >
+      <!-- list.slice截取list数组中当前页面的所有数据 -->
       <el-table-column prop="date" label="日期" width="180"></el-table-column>
       <el-table-column prop="name" label="姓名" width="180"></el-table-column>
       <el-table-column prop="address" label="地址"></el-table-column>
@@ -19,6 +20,16 @@
       layout="total, sizes, prev, pager, next, jumper"
       :total="totalCount"
     ></el-pagination>
+    <!--
+      background // 添加背景色（蓝）
+      @size-change="handleSizeChange" // 绑定改变页面大小方法
+      @current-change="handleCurrentChange" // 绑定当前页面方法
+      :current-page="currentPage" // 绑定当前页变量
+      :page-sizes="pageSizes" // 绑定页面大小设置数组
+      :page-size="pageSize" // 绑定页面大小变量
+      layout="total, sizes, prev, pager, next, jumper" // 布局设置，可增减元素以增减功能，这里把所有分页功能都展示了
+      :total="totalCount"   // 绑定数据总条数
+    -->
   </div>
 </template>
 
@@ -27,7 +38,7 @@ export default {
   data() {
     return {
       currentPage: 1, // 当前显示页
-      pageSize: 8,  // 每页显示数据条数
+      pageSize: 8, // 每页显示数据条数
       pageSizes: [4, 8, 12, 16], // 可选择每页显示数据条数
       totalCount: 48, // 数据总数
       list: [
@@ -111,7 +122,7 @@ export default {
           name: "16",
           address: "上海市普陀区金沙江路 1516 弄"
         },
-                {
+        {
           date: "2016-05-02",
           name: "1",
           address: "上海市普陀区金沙江路 1518 弄"
@@ -191,7 +202,7 @@ export default {
           name: "16",
           address: "上海市普陀区金沙江路 1516 弄"
         },
-                {
+        {
           date: "2016-05-02",
           name: "1",
           address: "上海市普陀区金沙江路 1518 弄"
@@ -275,12 +286,14 @@ export default {
     };
   },
   methods: {
-    handleSizeChange(val) { // 每次切换页面大小时，此方法响应，改变页面大小
-      this.pageSize = val; 
-      this.currentPage = 1;
+    handleSizeChange(val) {
+      // 每次切换页面大小时，此方法响应，改变页面大小
+      this.pageSize = val;
+      this.currentPage = 1; // 改变页面大小后，跳转回第一页
       console.log(`每页 ${val} 条`);
     },
-    handleCurrentChange(val) { // 每次切面当前页时，此方法响应，改变当前页
+    handleCurrentChange(val) {
+      // 每次切面当前页时，此方法响应，改变当前页
       this.currentPage = val;
       console.log(`当前页: ${val}`);
     }
