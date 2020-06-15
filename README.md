@@ -9,6 +9,12 @@
 ```
 
 ### 最终效果
+![image](https://github.com/JonnyOu/vue-test-1/blob/master/images/result.png)
+
+### 运行环境
+![image](https://github.com/JonnyOu/vue-test-1/blob/master/images/environment.png)
+
+### 运行
 ```
-![image](http://github.com//readme_add_pic/raw/master/images/nongshalie.jpg)
+clone后，进入项目根目录，写入代码:npm run serve
 ```
